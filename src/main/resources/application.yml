@@ -30,5 +30,5 @@ spring:
 logging:
   level:
     org.hibernate.SQL: debug
-#    org.hibernate.orm.jdbc.bind: trace
+    org.hibernate.orm.jdbc.bind: trace
 #    org.hibernate.type.descriptor.sql.BasicBinder: trace
