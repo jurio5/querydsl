@@ -17,6 +17,7 @@ spring:
         #        show_sql: true
         format_sql: true
         dialect: org.hibernate.dialect.MySQL8Dialect
+        use_sql_comments: true # 애플리케이션 실행 시 JPQL 코드 확인용
   #        default_batch_fetch_size: 100
   #    open-in-view: true
   data:
