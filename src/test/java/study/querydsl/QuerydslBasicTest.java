@@ -671,6 +671,39 @@ public class QuerydslBasicTest {
                 .execute();
     }
 
+    @Test
+    void sqlFunction() {
+        List<String> result = query
+                .select(Expressions.stringTemplate(
+                        "function('replace', {0}, {1}, {2})",
+                        member.username, "member", "M")
+                )
+                .from(member)
+                .fetch();
+
+        for (String s : result) {
+            System.out.println("s = " + s);
+        }
+    }
+
+    @Test
+    void sqlFunction2() {
+        List<String> result = query
+                .select(member.username)
+                .from(member)
+//                .where(member.username.eq(
+//                        Expressions.stringTemplate(
+//                                "function('lower', {0})",
+//                                member.username))
+//                )
+                .where(member.username.eq(member.username.lower()))
+                .fetch();
+
+        for (String s : result) {
+            System.out.println("s = " + s);
+        }
+    }
+
     private List<Member> searchMember1(String usernameCond, Integer ageCond) {
         BooleanBuilder builder = new BooleanBuilder();
 
