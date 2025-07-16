@@ -639,6 +639,38 @@ public class QuerydslBasicTest {
         assertThat(result).hasSize(1);
     }
 
+    @Test
+    void bulkUpdate() {
+        
+        // member1 = 10살 -> 비회원
+        // member1 = 20살 -> 비회원
+        // member1 = 30살 -> 유지
+        // member1 = 40살 -> 유지
+        
+        long count = query
+                .update(member)
+                .set(member.username, "비회원")
+                .where(member.age.lt(28))
+                .execute();
+    }
+
+    @Test
+    void bulkAdd() {
+        long count = query
+                .update(member)
+//                .set(member.age, member.age.add(1))
+                .set(member.age, member.age.multiply(1))
+                .execute();
+    }
+
+    @Test
+    void bulkDelete() {
+        query
+                .delete(member)
+                .where(member.age.goe(18))
+                .execute();
+    }
+
     private List<Member> searchMember1(String usernameCond, Integer ageCond) {
         BooleanBuilder builder = new BooleanBuilder();
 
