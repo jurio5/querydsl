@@ -126,13 +126,6 @@ public class MemberJpaRepository {
                 .fetch();
     }
 
-    private Predicate forAll(MemberSearchCondition condition) {
-        return usernameEq(condition.getUsername())
-                .and(teamNameEq(condition.getTeamName()))
-                .and(ageGoe(condition.getAgeGoe()))
-                .and(ageLoe(condition.getAgeLoe()));
-    }
-
 
     private BooleanExpression usernameEq(String username) {
         return hasText(username) ? member.username.eq(username) : null;
@@ -148,5 +141,12 @@ public class MemberJpaRepository {
 
     private BooleanExpression ageLoe(Integer ageLoe) {
         return ageLoe != null ? member.age.loe(ageLoe) : null;
+    }
+
+    private Predicate forAll(MemberSearchCondition condition) {
+        return usernameEq(condition.getUsername())
+                .and(teamNameEq(condition.getTeamName()))
+                .and(ageGoe(condition.getAgeGoe()))
+                .and(ageLoe(condition.getAgeLoe()));
     }
 }
