@@ -27,7 +27,7 @@ spring:
       pageable:
         default-page-size: 10
         max-page-size: 2000
-        one-indexed-parameters: true # \uD398\uC774\uC9D5 \uC778\uB371\uC2A4 1\uBD80\uD130 \uC2DC\uC791, \uC0AC\uC6A9 \uAD8C\uC7A5 X, \uB370\uC774\uD130\uAC00 \uB9DE\uC9C0 \uC54A\uC74C
+        one-indexed-parameters: false # \uD398\uC774\uC9D5 \uC778\uB371\uC2A4 1\uBD80\uD130 \uC2DC\uC791, \uC0AC\uC6A9 \uAD8C\uC7A5 X, \uB370\uC774\uD130\uAC00 \uB9DE\uC9C0 \uC54A\uC74C
 
 logging:
   level:
